@@ -1,0 +1,56 @@
+public void InserirBanco(Curso curso,ArrayList<Integer> lstIdDisciplinas) throws ExcecaoPersistencia, Exception {
+        try {
+            Connection c = Conexao.conectar();
+            
+            Statement st = c.createStatement();
+//           
+//          
+               
+                
+            
+               String consulta = 
+                        "INSERT INTO curso (id_curso,nome, sigla,"
+                        + "regime, duracao, descricao, areaConhecimento,turno, grauInstrucao) VALUES ('" 
+                        + curso.getCodCurso() + "','"
+                        + curso.getNome() + "','"
+                        + curso.getSigla() + "','"
+                        + curso.getRegime() + "','"
+                        + curso.getDuracao() + "','"
+                        + curso.getDescricao() + "','"
+                        + curso.getAreaConhecimento() + "','"
+                        + curso.getTurno() + "','"
+                        + curso.getGrauInstrucao() + "' );";
+                
+                st.execute(consulta);
+//            }   
+               
+             
+            // obtem o ID gerado para o Curso inserido
+           // st.execute("select mysqli_insert_id(c)");
+            //ResultSet rs = st.getResultSet();
+           
+          int idCurso = curso.getCodCurso();
+//            if (rs.next())
+//                idCurso = rs.getInt(1);
+                //System.out.println("lastID: "+idCurso);
+            
+            // insere as relacoes entre pais e filme
+            consulta = "INSERT INTO curso_disciplina (id_Curso, id_disciplina) VALUES";
+           
+            for (Integer p : lstIdDisciplinas) {
+                consulta += "('"+ idCurso + "', '" + p + "'),";
+            }
+            consulta = consulta.substring (0, consulta.length() - 1);
+            consulta += ";";
+            st.execute(consulta);
+            st.close();
+            Conexao.desconectar();
+
+        } catch (SQLException | java.lang.ClassNotFoundException ex) {
+            System.err.println(ex.getMessage());
+            ExcecaoPersistencia ep = new ExcecaoPersistencia("Erro ao inserir"
+                    + "na tabela cursos", ex);
+            throw ep;
+        } 
+    }
+     

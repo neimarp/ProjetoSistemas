@@ -4,7 +4,7 @@ package Model;
 import Persistencia.CursoDAO;
 import java.io.Serializable;
 
-public class Curso extends CursoDAO implements Serializable{
+public class Curso /*extends CursoDAO*/ implements Serializable{
     
     private int id;
     private String nome;

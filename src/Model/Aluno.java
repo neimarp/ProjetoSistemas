@@ -3,7 +3,7 @@ package Model;
 
 import Persistencia.AlunoDAO;
 import java.io.Serializable;
-public class Aluno extends AlunoDAO implements Serializable{
+public class Aluno extends Pessoa implements Serializable{
     
    
     private int id_aluno;

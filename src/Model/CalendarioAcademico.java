@@ -1,12 +1,10 @@
 
 package Model;
 
-import Persistencia.CalendarioAcademicoDAO;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 
-public class CalendarioAcademico extends CalendarioAcademicoDAO implements Serializable{
+public class CalendarioAcademico implements Serializable{
     
     private int id;
     private String situacao;

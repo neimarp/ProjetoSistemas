@@ -1,10 +1,8 @@
 
 package Model;
 
-import Persistencia.TurmaDAO;
 import java.io.Serializable;
-import java.util.HashMap;
-public class ClasseBase extends TurmaDAO implements Serializable{
+public class ClasseBase implements Serializable{
     
     private int id;
     private String situacao;

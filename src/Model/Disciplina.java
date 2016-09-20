@@ -1,10 +1,9 @@
 
 package Model;
 
-import Persistencia.DisciplinaDAO;
 import java.io.Serializable;
 import java.util.ArrayList;
-public class Disciplina extends DisciplinaDAO implements Serializable{
+public class Disciplina implements Serializable{
     
     private int id;
     private ArrayList<Disciplina> preRequisito;

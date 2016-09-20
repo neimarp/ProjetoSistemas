@@ -1,11 +1,10 @@
 
 package Model;
 
-import Persistencia.HorarioDAO;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Horario extends HorarioDAO implements Serializable{
+public class Horario implements Serializable{
     
     private int id;
     private int id_turma;

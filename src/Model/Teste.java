@@ -1,9 +1,8 @@
 
 package Model;
 
-import Persistencia.TurmaDAO;
 import java.io.Serializable;
-public class Teste extends TurmaDAO implements Serializable{
+public class Teste implements Serializable{
     
     private int id;
     private String nome;
